@@ -6,23 +6,23 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Dashboard</a>
+        <a class="nav-link" href="<?=ROOT?>">Dashboard</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">CLASSESS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">TESTS</a>
+        <a class="nav-link" href="<?=ROOT?>/tests">TESTS</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         USER
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">PROFILE</a>
-          <a class="dropdown-item" href="#">DASHBOARD</a>
+          <a class="dropdown-item" href="<?=ROOT?>/profile">PROFILE</a>
+          <a class="dropdown-item" href="<?=ROOT?>">DASHBOARD</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="<?=ROOT?>/logout">Logout</a>
         </div>
       </li>
     </ul>
