@@ -9,8 +9,8 @@
   	
   	private function connect()
   	{
-  		$string ="mysql:host=localhost;dbname=school_db";
-  		if(!$con = new PDO($string,'root','')){
+  		$string =DBDRIVER.":host=".DBHOST.";dbname=".DBNAME;
+  		if(!$con = new PDO($string,DBUSER,DBPASS)){
 
   			die("Could not  connect database");
   		}
@@ -18,7 +18,7 @@
   		return $con;
   	}
 
-  	public function run($query,$data=array(),$data_type = "object"){
+  	public function query($query,$data=array(),$data_type = "object"){
 
         $con =$this->connect();
         $stm =$con->prepare($query);
@@ -47,8 +47,5 @@
         return false;
   	}
 
-  	public function query(){
-
-
-  	}
+  	
   }
