@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav me-auto">
       <li class="nav-item active">
         <a class="nav-link" href="<?=ROOT?>">Dashboard</a>
       </li>
@@ -14,6 +14,8 @@
       <li class="nav-item">
         <a class="nav-link" href="<?=ROOT?>/tests">TESTS</a>
       </li>
+      </ul>
+      <ul class="navbar-nav mx-auto">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         USER

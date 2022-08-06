@@ -68,13 +68,10 @@ class Model extends Database
       return $this->query($query,$data);
 	}
 	public function delete($id){
-		$column =addcslashes($column);
+		
 
-      $query ="select * from $this->table where $column = :value";
-      return $this->query($query,[
-
-          
-          'value'=>$value
-      ]);
+      $query ="delete from $this->table where id = :id";
+       $data['id']=$id;
+      return $this->query($query,$data);
 	}
 }
