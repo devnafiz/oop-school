@@ -7,7 +7,23 @@ class Signup extends Controller
 	
 	function index()
 	{
-		 $this->view('sign_up');
+         $erorrs =array();
+
+         if(count($_POST)>0){
+
+         	$user = new User();
+
+         	if($user->validate($_POST)){
+
+
+               $this->redirect('login');
+         	}else{
+
+         		$erorrs=$user->errors;
+         	}
+         }
+
+		 $this->view('sign_up',['errors'=>$erorrs]);
 	}
 }
 

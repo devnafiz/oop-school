@@ -8,5 +8,20 @@
 class User extends Model
 {
 	
-	//protected $table ="users";
+	public function validate($DATA){
+		$this->errors=array();
+
+		if($DATA['password'] != $DATA['password2']){
+
+			$this->errors[]= "This password don't match";
+
+		}
+
+		if(count($this->errors)==0){
+          return true;
+		}
+
+        return false;
+
+	}
 }

@@ -6,7 +6,7 @@
  */
 class Model extends Database
 {
-	//protected $table ="users";
+	public $errors =array();
 
 	function __construct()
 	{
