@@ -40,7 +40,7 @@ class User extends Model
 		}
 
 		//password length
-		if(  strlen($DATA['password']) <=8 ){
+		if(  strlen($DATA['password']) <8 ){
 
 			$this->errors['password']= "This password  mast be 8 cheracter";
 

@@ -7,10 +7,23 @@
   ?>
 
 	<div class="conteiner-fluid">
+	 
 		<form action="" method="post">
 		 <div class="p-4 mx-auto shadow" style="max-width: 320px; width: 100% ;margin-top: 30px">
 		 	<h2 class="text-center">My school</h2>
 		 	<h3 class="text-center"> Add User</h3>
+       <?php if(count($errors)>0)?>
+		 <div class="alert alert-warning alert-dismissible fade show" role="alert">
+		  <strong>Error:</strong> 
+		   <?php foreach($errors as $error): ?>
+		 <br> <?=$error?>
+
+		<?php endforeach;?>
+		  <span type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+		    <span aria-hidden="true">&times;</span>
+		  </span>
+		</div>
+	    <? endif;?>
              <input type="text" name="firstname" <?=get_var('firstname')?> class="my-2 form-control" placeholder="First name" >
 		 	 <input type="text" name="lastname" <?=get_var('lastname')?> class="my-2 form-control" placeholder="Last Name" >
 		 	 <input type="text" name="email" <?=get_var('email')?> class="my-2 form-control" placeholder="Email" >
