@@ -7,7 +7,17 @@
  */
 class User extends Model
 {
+	protected $allowedColumns=[
+		'firstname',
+		'lastname',
+		'email',
+		'password',
+		'gender',
+		'rank'
+
+	];
 	
+	protected $beforeInsert=['make_user_id','make_school_id','has_password'];
 	public function validate($DATA){
 		$this->errors = array();
 
@@ -52,5 +62,22 @@ class User extends Model
 
         return false;
 
+	}
+
+
+	public function make_user_id($data){
+
+         return $data;
+		}
+
+	public function	make_school_id($data){
+
+       return $data;
+		}
+
+
+	public function	has_password($data){
+		$data['password']= password_hash($data['password'], PASSWORD_DEFAULT); 
+       return $data;
 	}
 }
