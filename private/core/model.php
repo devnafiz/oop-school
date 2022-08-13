@@ -40,12 +40,12 @@ class Model extends Database
 	public function insert($data){
 
           //remove un wanted column
-        if(!property_exists($this, 'allowedColumns')){
+        if(property_exists($this, 'allowedColumns')){
 
           foreach($data as $key =>$column)
             {
               if(!in_array($key, $this->allowedColumns)){
-                unset($data($key))
+                unset($data[$key]);
               }
             }
 
@@ -53,7 +53,7 @@ class Model extends Database
       
     }
       //insert before function
-        if(!property_exists($this, 'beforeInsert')){
+        if(property_exists($this, 'beforeInsert')){
 
       foreach ($this->beforeInsert as $func){
 

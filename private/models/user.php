@@ -13,11 +13,13 @@ class User extends Model
 		'email',
 		'password',
 		'gender',
-		'rank'
+		'rank',
+		'date'
 
 	];
 	
 	protected $beforeInsert=['make_user_id','make_school_id','has_password'];
+
 	public function validate($DATA){
 		$this->errors = array();
 
@@ -67,10 +69,16 @@ class User extends Model
 
 	public function make_user_id($data){
 
+			$data['user_id']=$this->random_string(60);
          return $data;
 		}
 
 	public function	make_school_id($data){
+
+		if(isset($_SESSION['USER']->school_id)){
+			$data['school_id']=$_SESSION['USER']->school_id;
+
+		}
 
        return $data;
 		}
@@ -79,5 +87,19 @@ class User extends Model
 	public function	has_password($data){
 		$data['password']= password_hash($data['password'], PASSWORD_DEFAULT); 
        return $data;
+	}
+
+	private function random_string($length){
+
+		 $array = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $text = '';
+	  
+	    for ($i = 0; $i < $length; $i++) {
+	        $random = rand(0, 61);
+	        $text .= $array[$random];
+	    }
+	  
+	    return $text;
+
 	}
 }
