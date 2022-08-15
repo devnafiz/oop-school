@@ -14,7 +14,7 @@ class Home extends Controller
 		}
 		$user = new User();
 		    
-            $user->delete(10);
+           //$user->delete(10);
 		 $data=$user->findAll();
 		 //$data =$user->where('firstname','sfdsd');
 		 $this->view('home',['rows'=>$data]);

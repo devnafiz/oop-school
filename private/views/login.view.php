@@ -1,29 +1,34 @@
 
+
+<?php $this->view('includes/header')?>
 	
-  <?php  $this->view('includes/header');?>
+	<div class="container-fluid">
+		
+	<form method="post">
+		<div class="p-4 mx-auto mr-4 shadow rounded" style="margin-top: 50px;width:100%;max-width: 340px;">
+			<h2 class="text-center">My School</h2>
+			<img src="<?=ROOT?>/assets/logo.png" class="border border-primary d-block mx-auto rounded-circle" style="width:100px;">
+			<h3>Login</h3>
 
-	<div class="conteiner-fluid">
-		<?php if(count($errors)>0)?>
-		 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-		  <strong>Error:</strong> 
-		   <?php foreach($errors as $error): ?>
-		 <br> <?=$error?>
-
-		<?php endforeach;?>
-		  <span type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
-		    <span aria-hidden="true">&times;</span>
-		  </span>
+			<?php if(count($errors) > 0):?>
+			<div class="alert alert-warning alert-dismissible fade show p-1" role="alert">
+			  <strong>Errors:</strong>
+			   <?php foreach($errors as $error):?>
+			  	<br><?=$error?>
+			  <?php endforeach;?>
+			  <span  type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </span>
+			</div>
+			<?php endif;?>
+			
+			<input class="form-control" value="<?=get_var('email')?>" type="email" name="email" placeholder="Email" autofocus autocomplete="off">
+			<br>
+			<input class="form-control" value="<?=get_var('password')?>" type="password" name="password" placeholder="Password">
+			<br>
+			<button class="btn btn-primary">Login</button>
 		</div>
-	    <? endif;?>
-		<form method="POST">
-		 <div class="p-4 mx-auto shadow" style="max-width: 320px; width: 100% ;margin-top: 30px">
-		 	<h2 class="text-center">My school</h2>
-		 	<h3 class="text-center"> Login</h3>
-		 	 <input type="text" name="email" class="form-control" placeholder="Email" autofocus <?=get_var('email')?>><br>
-		 	  <input type="password" name="password" class="form-control" placeholder="password" autofocus <?=get_var('password')?>>
-		 	  <br>
-		 	  <button class="btn btn-info">Login</button>
-		 </div>
-		 </form>	
+	</form>
 	</div>
-<?php $this->view('includes/footer');?>
+
+<?php $this->view('includes/footer')?>

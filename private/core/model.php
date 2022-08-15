@@ -17,8 +17,10 @@ class Model extends Database
 		}
 	}
 
+
 	public function where($column,$value){
-		$column =addcslashes($column);
+
+		$column = addslashes($column);
 
       $query ="select * from $this->table where $column = :value";
       return $this->query($query,[
